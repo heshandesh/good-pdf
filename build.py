@@ -1,16 +1,24 @@
 import PyInstaller.__main__
 import os
+from version import VERSION
 
-# Get the current directory
+# Create executable name with version
+EXE_NAME = f"GoodPDF-v{VERSION}"
+
+# Get current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-PyInstaller.__main__.run([      
+# Run PyInstaller
+PyInstaller.__main__.run([
     'main.py',
-    '--name=GoodPDF',
+    f'--name={EXE_NAME}',
     '--onefile',
     '--windowed',
     '--icon=NONE',
     '--add-data=README.md;.',
     '--clean',
-    '--noconfirm',
-]) 
+    '--noconfirm'
+])
+
+print(f"\nBuild complete! Executable created as: {EXE_NAME}.exe")
+print("You can find it in the 'dist' folder.") 
