@@ -24,8 +24,22 @@ python main.py
 
 ## Building Executable
 
-To create a standalone executable:
+### Prerequisites
+- Python 3.7+
+- PyInstaller (included in requirements.txt)
+- (Optional) UPX for smaller executable size
 
+### Version Management
+1. Open `version.py` and update the version number:
+```python
+VERSION = "1.0.0"  # Change this to your desired version
+```
+2. The version format should be: `MAJOR.MINOR.PATCH`
+   - MAJOR: Big changes (e.g., 2.0.0)
+   - MINOR: New features (e.g., 1.1.0)
+   - PATCH: Bug fixes (e.g., 1.0.1)
+
+### Build Steps
 1. Install requirements:
 ```bash
 pip install -r requirements.txt
@@ -36,7 +50,14 @@ pip install -r requirements.txt
 python build.py
 ```
 
-The executable will be created in the `dist` folder as `GoodPDF.exe`
+3. Find your executable:
+- Location: `dist/GoodPDF-v{VERSION}.exe`
+- Example: `dist/GoodPDF-v1.0.0.exe`
+
+### Note
+- The executable size is around 80MB (normal for PyQt6 applications)
+- This is a single-file executable with all dependencies included
+- No installation required - just run the .exe file
 
 ## Requirements
 
@@ -72,7 +93,8 @@ To modify or enhance the application:
 2. Install development dependencies
 3. Make your changes
 4. Test thoroughly
-5. Build new executable
+5. Update version in `version.py`
+6. Build new executable
 
 ## License
 
